@@ -1,0 +1,26 @@
+.wrapper{
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: auto minmax(400px, 1200px) auto;
+    grid-template-rows: auto auto 1fr;
+    gap: 40px;
+    grid-template-areas: 
+        ". header ."
+        ". filter ."
+        ". body .";
+}
+
+.header{
+    grid-area: header;
+    background-color: aqua;
+    
+}
+
+.body{
+    grid-area: body;
+}
+
+.filter{
+    grid-area: filter;
+}
