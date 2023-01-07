@@ -19,13 +19,7 @@ const Layout = ({children}:LayoutProps): JSX.Element => {
                 Filter
             </Filter>
             <Body className={styles.body}>
-                <Card
-                    name="Colombia"
-                    population={48759958}
-                    capital="Bogotá"
-                    region="South America"
-                    image="https://qph.cf2.quoracdn.net/main-qimg-f5a2a1ed73e69d23520161d4fc5c4248"
-                />
+                {children}
             </Body>
         </div>
     )

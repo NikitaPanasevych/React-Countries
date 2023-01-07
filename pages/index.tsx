@@ -10,7 +10,19 @@ function Home({data}: DataProps) {
 
   return (
     <>
-      
+      {
+        data.map(
+          (country, index:number) => 
+            <Card
+            key={index} 
+            name={country.name}
+            population={country.population}
+            image={country.flag}
+            region={country.region}
+            capital={country.capital}
+            />
+        )
+        }
     </>
   );
 };
