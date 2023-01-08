@@ -29,9 +29,3 @@
     border-top-right-radius: 10px;
     object-fit: cover;
 }
-
-.container:hover{
-    transition: all 0.2s;
-
-    scale: 1.025;
-}

@@ -5,3 +5,12 @@
     gap: 60px;
 }
 
+@media (max-width: 375px) {
+    .body{
+        display: grid;
+        justify-items: center;
+        grid-template-columns: minmax(auto, 1fr);
+        grid-template-rows:  auto; 
+        
+    }
+}
