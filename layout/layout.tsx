@@ -4,7 +4,7 @@ import { FunctionComponent, useContext, useState } from "react"
 import { Header } from "./header/header"
 import { Body } from "./body/body"
 import { Filter } from "./filter/filter"
-import { AppContext, AppContextProvider } from "../context/app.context"
+import { AppContext } from "../context/app.context"
 
 
 
@@ -22,7 +22,7 @@ const Layout = ({children}:LayoutProps): JSX.Element => {
         <div className={styles.wrapper}>
             <Header className={styles.header}>
                 <div>Where in the world?</div>
-                <div onClick={()=>setMode((prev)=>!prev)}>{lightMode === true? "Light Mode" : "Dark Mode"}</div>
+                <div onClick={()=>setMode((prev:any)=>!prev)}>{lightMode === true? "Light Mode" : "Dark Mode"}</div>
             </Header>
             <Filter className={styles.filter}>
                 <div className={styles.searchbox}>
@@ -47,11 +47,9 @@ const Layout = ({children}:LayoutProps): JSX.Element => {
 export const withLayout = <T extends Record<string, unknown>>(Component: FunctionComponent<T>) => {
     return function withLayoutComponent(props: T): JSX.Element{
         return(
-            <AppContextProvider search={""} region={"Filter by region"} lightMode={true}>
                 <Layout>
                     <Component {...props} />
                 </Layout>
-            </AppContextProvider>
         )
     }
 }

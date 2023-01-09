@@ -1,7 +1,5 @@
 .wrapper{
     min-height: 100vh;
-
-    padding-bottom: 40px;
     
     display: grid;
     grid-template-columns: auto minmax(400px, 1380px) auto;

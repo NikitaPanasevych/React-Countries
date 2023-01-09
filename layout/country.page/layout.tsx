@@ -4,8 +4,8 @@ import { FunctionComponent, useContext } from "react";
 import { Header } from "../header/header";
 import { Body } from "../body/body";
 import { Filter } from "../filter/filter";
-import { AppContext, AppContextProvider } from "../../context/app.context";
-
+import { AppContext } from "../../context/app.context";
+import Link from "next/link";
 
 
 const CPageLayout = ({children}:LayoutProps): JSX.Element => {
@@ -19,7 +19,7 @@ const CPageLayout = ({children}:LayoutProps): JSX.Element => {
                 <div onClick={()=>setMode((prev)=>!prev)}>{lightMode === true? "Light Mode" : "Dark Mode"}</div>
             </Header>
             <Filter className={styles.filter}>
-                <a href="/">BACK</a>
+                <Link href="/">BACK</Link>
             </Filter>
             <Body className={styles.body}>
                 {children}
@@ -31,11 +31,9 @@ const CPageLayout = ({children}:LayoutProps): JSX.Element => {
 export const withCPageLayout = <T extends Record<string, unknown>>(Component: FunctionComponent<T>) => {
     return function withLayoutComponent(props: T): JSX.Element{
         return(
-            <AppContextProvider search={""} region={"Filter by region"} lightMode={true}>
                 <CPageLayout>
                     <Component {...props} />
                 </CPageLayout>
-            </AppContextProvider>
         )
     }
 }

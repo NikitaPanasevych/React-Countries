@@ -2,7 +2,7 @@ import axios from "axios";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router"
 import { useEffect } from "react";
-import { CountryPageCard } from "../components/countryPageCard/countryPageCard";
+import { CountryPageCard } from "../components/countryPage/countryPage";
 import { Country } from "../interfaces/data.interface";
 import { withCPageLayout } from "../layout/country.page/layout";
 
