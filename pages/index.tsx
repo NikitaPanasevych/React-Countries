@@ -1,6 +1,7 @@
 import axios from "axios";
 import { GetStaticProps } from "next";
-import { useContext } from "react";
+import Link from "next/link";
+import { useContext, useEffect } from "react";
 import { Card } from "../components/countryCard/countryCard";
 import { AppContext } from "../context/app.context";
 import { Country } from "../interfaces/data.interface";
@@ -15,18 +16,22 @@ function Home({data}: DataProps) {
     <>
       {
         data.map(
-          (country, index:number) => {
+          (country) => {
             if(country.region === region || region === "Filter by region" || region === "World")  
               if(search === "" ||  country.name.toLowerCase().startsWith(search.toLowerCase())){
                 return(
-                  <Card
-                    key={index} 
-                    name={country.name}
-                    population={country.population}
-                    image={country.flag}
-                    region={country.region}
-                    capital={country.capital}
-                  />
+                  <>
+                    <Link href={"/" + country.name} key={country.name}>
+                      <Card
+                        key={country.name} 
+                        name={country.name}
+                        population={country.population}
+                        image={country.flag}
+                        region={country.region}
+                        capital={country.capital}
+                      />
+                    </Link>
+                  </>
                 )
               }       
           }
@@ -47,6 +52,6 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-interface DataProps extends Record<string, unknown> {
+export interface DataProps extends Record<string, unknown> {
   data: Country[];
 };
