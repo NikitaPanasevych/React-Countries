@@ -1,43 +1,38 @@
-import axios from "axios";
-import { GetStaticPaths, GetStaticProps } from "next";
-import { useRouter } from "next/router"
-import { useEffect } from "react";
-import { CountryPageCard } from "../components/countryPage/countryPage";
-import { Country } from "../interfaces/data.interface";
-import { withCPageLayout } from "../layout/country.page/layout";
+import axios from 'axios';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { CountryPageCard } from '../components/countryPage';
+import { Country } from '../interfaces/data.interface';
+import { withCPageLayout } from '../layout/countryPageLayout';
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const {data: data} = await axios.get("https://restcountries.com/v2/all");
-    const paths = data.map((country:Country)=>{
-        return{
-            params: { name: country.name}
-        }
-    })
-    return {
-        paths,
-        fallback: false
-    }
-}
+   const { data: data } = await axios.get('https://restcountries.com/v2/all');
+   const paths = data.map((country: Country) => {
+      return {
+         params: { name: country.name },
+      };
+   });
+   return {
+      paths,
+      fallback: false,
+   };
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const name = context.params?.name;
-    const {data: data} = await axios.get<Country>("https://restcountries.com/v2/name/"+name);
-    return{
-        props: { data: data }
-    }
-}
+   const name = context.params?.name;
+   const { data: data } = await axios.get<Country>('https://restcountries.com/v2/name/' + name);
+   return {
+      props: { data: data },
+   };
+};
 
 interface PageProps extends Record<string, unknown> {
-    data: Country[];
+   data: Country[];
 }
 
-const CountryPage = ({data}: PageProps) => {
-
-
-    return(
-        <>
-            
-        <CountryPageCard 
+const CountryPage = ({ data }: PageProps) => {
+   return (
+      <>
+         <CountryPageCard
             name={data[0].name}
             population={data[0].population}
             region={data[0].region}
@@ -48,10 +43,9 @@ const CountryPage = ({data}: PageProps) => {
             languages={data[0].languages}
             borders={data[0].borders}
             nativeName={data[0].nativeName}
-            />
-        </>
-    )
-}
+         />
+      </>
+   );
+};
 
 export default withCPageLayout(CountryPage);
-
