@@ -43,6 +43,7 @@ const CountryPage = ({ data }: PageProps) => {
             languages={data[0].languages}
             borders={data[0].borders}
             nativeName={data[0].nativeName}
+            topLevelDomain={data[0].topLevelDomain}
          />
       </>
    );

@@ -26,7 +26,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
       <div className={styles.wrapper} style={{ backgroundColor: `${primaryBackgroundColor}`, color: `${textColor}` }}>
          <Header className={styles.header}>
             <div>Where in the world?</div>
-            <div onClick={() => setMode((prev: boolean) => !prev)}>
+            <div onClick={() => setMode?.(!lightMode)}>
                <MdNightlightRound />
                {lightMode === true ? 'Dark Mode' : 'Light Mode'}
             </div>
@@ -37,7 +37,10 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
                style={{ backgroundColor: `${secondaryBackgroundColor}`, color: `${textColor}` }}
             >
                <BsSearch />
-               <input placeholder="Search for a country..." onChange={(event) => setSearch(event.target.value)}></input>
+               <input
+                  placeholder="Search for a country..."
+                  onChange={(event) => setSearch?.(event.target.value)}
+               ></input>
             </div>
             <div
                style={{ backgroundColor: `${secondaryBackgroundColor}`, color: `${textColor}` }}
@@ -51,7 +54,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
                {dropdown ? (
                   <div className={styles.dropdown_content}>
                      {regions.map((e: string, index: number) => (
-                        <p key={index} onClick={() => setRegion(e)}>
+                        <p key={index} onClick={() => setRegion?.(e)}>
                            {e}
                         </p>
                      ))}

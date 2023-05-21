@@ -18,7 +18,7 @@ const CPageLayout = ({ children }: LayoutProps): JSX.Element => {
       <div className={styles.wrapper} style={{ backgroundColor: `${primaryBackgroundColor}`, color: `${textColor}` }}>
          <Header className={styles.header}>
             <div>Where in the world?</div>
-            <div onClick={() => setMode((prev) => !prev)}>{lightMode === true ? 'Light Mode' : 'Dark Mode'}</div>
+            <div onClick={() => setMode?.(!lightMode)}>{lightMode === true ? 'Light Mode' : 'Dark Mode'}</div>
          </Header>
          <Filter className={styles.filter}>
             <div className={styles.backLink}>

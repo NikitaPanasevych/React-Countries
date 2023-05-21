@@ -32,7 +32,10 @@ export const CountryPageCard = ({
             <div className={styles.info}>
                <div className={styles.infoleft}>
                   <a>Native Name: {nativeName}</a>
-                  <a>Population: {population}</a>
+                  <a>
+                     Population:
+                     {population > 1000000 ? Math.round((population / 1000000) * 100) / 100 + 'm' : population}
+                  </a>
                   <a>Region: {region}</a>
                   <a>Sub Region: {subRegion}</a>
                   <a>Capital: {capital}</a>
@@ -41,14 +44,14 @@ export const CountryPageCard = ({
                   <div>Top Level Domain: {topLevelDomain}</div>
                   <div>
                      Currencies:{' '}
-                     {currencies.map((e) => (
+                     {currencies?.map((e) => (
                         <a>{e.name}</a>
                      ))}
                   </div>
                   <div>
                      Languages:{' '}
-                     {languages.map((e) => (
-                        <a>{e.name}</a>
+                     {languages?.map((e) => (
+                        <a>{e.name} </a>
                      ))}
                   </div>
                </div>
