@@ -1,0 +1,36 @@
+.container{
+
+    width: 300px;
+    height: 400px;
+
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.container:hover{
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out;
+}
+
+.name{
+    font-weight: 600;
+
+    display: block;
+    padding: 20px;
+}
+
+.population, .capital, .region{
+    display: block;
+    padding: 8px 20px 0px 20px;
+}
+
+
+.image{
+    width: 300px;
+    height: 180px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
+}
+
+

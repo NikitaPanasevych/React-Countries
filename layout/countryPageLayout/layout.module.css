@@ -1,0 +1,83 @@
+.wrapper{
+    min-height: 100vh;
+    
+    display: grid;
+    grid-template-columns: auto minmax(400px, 1380px) auto;
+    grid-template-rows: auto auto 1fr;
+    gap: 40px;
+    grid-template-areas: 
+        ". header ."
+        ". filter ."
+        ". body .";
+}
+
+.header{
+    grid-area: header;
+
+}
+
+.body{
+    grid-area: body;
+}
+
+.filter{
+    grid-area: filter;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter > a:visited, .filter > a:link{
+    font-size: 16px;
+    background-color: (--white);
+    width: 60px;
+    height: 20px;
+    padding: 10px;
+}
+
+.backLink{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+    border-radius: 7.5px;
+
+    font-size: 16px;
+    height: 40px;
+    width: 120px;
+
+    cursor: pointer;
+}
+
+.link{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.linkContent>svg{
+    height: 20px;
+    width: 20px;
+    transform: translateY(4px);
+}
+
+@media(max-width: 375px){
+    .wrapper{
+        min-height: 100vh;
+
+        padding-bottom: 40px;
+        
+        display: grid;
+        grid-template-columns:  minmax(auto, 1fr) ;
+        grid-template-rows: auto auto 1fr;
+        gap: 40px 0px;
+        grid-template-areas: 
+            ". header ."
+            ". filter ."
+            ". body .";
+    }
+}

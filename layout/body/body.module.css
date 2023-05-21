@@ -1,0 +1,16 @@
+.body{
+    display: grid;
+    grid-template-columns: 300px 300px 300px 300px;
+    grid-template-rows:  auto; 
+    gap: 60px;
+}
+
+@media (max-width: 375px) {
+    .body{
+        display: grid;
+        justify-items: center;
+        grid-template-columns: minmax(auto, 1fr);
+        grid-template-rows:  auto; 
+        
+    }
+}
