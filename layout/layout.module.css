@@ -16,6 +16,14 @@
     background-color: var(--white);
 }
 
+.themeSwitcher{
+    cursor: pointer;
+}
+
+.themeSwitcher > svg{
+    transform: translateY(1.5px);
+}
+
 .body{
     grid-area: body;
 }
@@ -24,6 +32,11 @@
     grid-area: filter;
     display: flex;
     justify-content: space-between;
+}
+
+.regionFilter > svg{
+    transform: translateY(1.5px);
+    margin-right: 5px;
 }
 
 .dropdown, .searchbox{

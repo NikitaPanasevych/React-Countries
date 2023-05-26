@@ -26,7 +26,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
       <div className={styles.wrapper} style={{ backgroundColor: `${primaryBackgroundColor}`, color: `${textColor}` }}>
          <Header className={styles.header}>
             <div>Where in the world?</div>
-            <div onClick={() => setMode?.(!lightMode)}>
+            <div className={styles.themeSwitcher} onClick={() => setMode?.(!lightMode)}>
                <MdNightlightRound />
                {lightMode === true ? 'Dark Mode' : 'Light Mode'}
             </div>
@@ -47,7 +47,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
                className={styles.dropdown}
                onClick={() => setDropdown((prev) => !prev)}
             >
-               <span>
+               <span className={styles.regionFilter}>
                   <IoFilterSharp />
                   {region}
                </span>
