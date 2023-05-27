@@ -13,7 +13,9 @@ export const Card = ({ name, population, region, capital, image }: CardProps): J
       <div className={styles.container} style={{ backgroundColor: `${backgroundColor}`, color: `${textColor}` }}>
          <img className={styles.image} src={image} />
          <span className={styles.name}>Name: {name}</span>
-         <span className={styles.population}>Population: {population}</span>
+         <span className={styles.population}>
+            Population: {population > 1000000 ? Math.round((population / 1000000) * 100) / 100 + 'm' : population}
+         </span>
          <span className={styles.region}>Region: {region}</span>
          <span className={styles.region}>Capital: {capital}</span>
       </div>
